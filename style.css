@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: black;
+    background-image: url('./assets/images/bg.png');
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @font-face {
+    font-family: SometypeMono;
+    src: url('../../content/assets/fonts/Sometype_Mono/SometypeMono-VariableFont_wght.ttf');
+  }
+  
+  canvas {
+    display: block;
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+  
+  .content{
+    color: white;
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: large;
+    font-family: SometypeMono;
+  }
