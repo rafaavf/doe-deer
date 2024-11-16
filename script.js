@@ -89,6 +89,9 @@ function preload() {
 
 }
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+
 function setup() {
     createCanvas(620, 560);
 
@@ -98,15 +101,8 @@ function setup() {
     camera.on()
 
     if (state.gamestate === 'start') {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        if (isMobile) {
-            fill('black');
-            textFont(fonts.pixelatedDisplay);
-            textSize(12);
-            text('this doesnt work on mobile silly come back on pc', 300,300);
-        } else {
-
+        if (!isMobile) {
 
         frameRate(27);
 
@@ -134,6 +130,14 @@ function draw() {
     background(220);
 
     if (state.gamestate === 'start') {
+        
+        if(isMobile){
+            fill('black');
+            textFont(fonts.pixelatedDisplay);
+            textSize(40);
+            text('this doesnt work on mobile', 25, 280);
+            text('silly come back on pc', 75, 320);
+        } else {
 
         alice.sprite.changeAnimation("idle_d");
 
@@ -146,7 +150,10 @@ function draw() {
         uniFunc.drawDialog(uniFunc.dialogText);
         uniFunc.dialogProgress(dialogs_1);
 
+    }
+
     } else if (state.gamestate === 'walkaround') {
+
         if (!state.dialog.isDialog && state.task != 'duringprepare') {
             uniFunc.walk(alice);
         }
