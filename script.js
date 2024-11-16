@@ -98,6 +98,16 @@ function setup() {
     camera.on()
 
     if (state.gamestate === 'start') {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            fill('black');
+            textFont(fonts.pixelatedDisplay);
+            textSize(12);
+            text('this doesnt work on mobile silly come back on pc', 300,300);
+        } else {
+
+
         frameRate(27);
 
         uniFunc.map()
@@ -107,6 +117,8 @@ function setup() {
         state.dialog.isDialog = true;
         state.dialog.currentDialogIndex = 0;
         uniFunc.dialog(dialogs_1[0].text, dialogs_1[0].name);
+
+        }
 
     } else if (state.gamestate === 'walkaround') {
         frameRate(27);
